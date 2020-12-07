@@ -21,6 +21,7 @@ $(function() {
                 '<td>' + cachorros[i].raca + '</td>' + 
                 '<td>' + cachorros[i].porte + '</td>' + 
                 '<td>' + cachorros[i].cor + '</td>' + 
+                '<td>' + cachorros[i].problemaDeSaude + '</td>' + 
                 '<td><a href=# id="excluir_' + cachorros[i].id + '" ' + 
                   'class="excluir_cachorro"><img src="img/excluir.png" '+
                   'alt="Excluir cachorro" title="Excluir cachorro"></a>' + 
@@ -53,8 +54,9 @@ $(function() {
         raca = $("#campoRaca").val();
         porte = $("#campoPorte").val();
         cor = $("#campoCor").val();
+        problemaDeSaude = $("#campoProblemaDeSaude").val();
 
-        var dados = JSON.stringify({ nome: nome, genero: genero, idade: idade, raca: raca, porte: porte, cor: cor });
+        var dados = JSON.stringify({ nome: nome, genero: genero, idade: idade, raca: raca, porte: porte, cor: cor, problemaDeSaude: problemaDeSaude });
 
         $.ajax({
             url: 'http://localhost:5000/incluir_cachorro',
@@ -74,6 +76,7 @@ $(function() {
                 $("#campoRaca").val("");
                 $("#campoPorte").val("");
                 $("#campoCor").val("");
+                $("#campoProblemaDeSaude").val("");
             } else {
                 alert(retorno.resultado + ":" + retorno.detalhes);
             }            
